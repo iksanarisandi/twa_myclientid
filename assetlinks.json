@@ -1,10 +1,15 @@
-[{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
-    "namespace": "android_app",
-    "package_name": "com.passnet.myclientid",
-    "sha256_cert_fingerprints": [
-      "A7:C3:03:AF:FC:E6:25:8A:BE:4F:8C:3D:1A:B2:E9:D1:23:3D:A1:6B:DD:39:0A:A5:D1:97:B9:5E:1A:79:1B:61"
-    ]
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.passnet.myclientid",
+      "sha256_cert_fingerprints": [
+        "A7:C3:03:AF:FC:E6:25:8A:BE:4F:8C:3D:1A:B2:E9:D1:23:3D:A1:6B:DD:39:0A:A5:D1:97:B9:5E:1A:79:1B:61",
+        "30:3C:88:5D:02:52:7E:91:F4:4B:03:40:7F:03:6D:69:37:CF:8B:A9:F1:B8:D7:75:DE:D3:73:CB:89:97:E6:60"
+      ]
+    }
   }
-}]
+]
