@@ -81,3 +81,58 @@ Contoh hasil akhirnya (ganti "`KODE_SHA256_DARI_PLAY_CONSOLE_ANDA_DI_SINI`" deng
 
 ## Selesai!
 Setelah Anda menyelesaikan langkah-langkah di atas, aplikasi TWA Anda sudah sepenuhnya bebas dari *address bar* seperti layaknya aplikasi bawaan Android *native*!
+
+---
+
+## 🛠️ Troubleshooting (Penyelesaian Masalah)
+
+### 1. Aplikasi Langsung Tiba-tiba *Crash* (Tertutup Sendiri saat Dibuka)
+Masalah umum yang terjadi saat pengaturan TWA baru adalah aplikasi di-build dengan **sukses tapi _crash_ saat dibuka**.
+Penyebab utamanya adalah parameter `<meta-data>` pada `AndroidManifest.xml` tidak menggunakan referensi XML (*resource reference*) melainkan teks mentah.
+
+Library **`androidbrowserhelper`** mewajibkan nilai-nilai tertentu di-fetch sebagai Array atau Resource, antara lain:
+- **`ADDITIONAL_TRUSTED_ORIGINS`** (harus memanggil *string-array*)
+- **`asset_statements`** (direkomendasikan memakai *string resource*)
+
+**Solusi yang benar (dan sudah diterapkan pada project ini):**
+
+1. Semua string spesifik ini harus disimpan dalam file `app/src/main/res/values/strings.xml`:
+```xml
+<resources>
+    <string name="app_name">My Passnet</string>
+    <string name="asset_statements">${assetStatements}</string>
+    <string-array name="additional_trusted_origins">
+        <item>https://client.pass.net.id</item>
+    </string-array>
+</resources>
+```
+2. Pastikan file `app/src/main/AndroidManifest.xml` menggunakan `android:resource` (bukan `android:value`):
+```xml
+<!-- Benar (Memakai Resource) -->
+<meta-data
+    android:name="asset_statements"
+    android:resource="@string/asset_statements" />
+
+<meta-data android:name="android.support.customtabs.trusted.ADDITIONAL_TRUSTED_ORIGINS"
+    android:resource="@array/additional_trusted_origins" />
+```
+*Menggunakan `android:value` berisikan link secara langsung pada tag origin tersebut akan mengakibatkan Exception dan menghentikan (crash) aplikasi secara paksa.*
+
+### 2. Peringatan (Warning) "Unsupported Compile SDK" saat nge-Build
+Saat di build, Android Studio bisa mengeluarkan _log warning_:
+`WARNING: We recommend using a newer Android Gradle plugin to use compileSdk = 35`
+
+Ini hanya sekadar peringatan untuk _versioning_ tool Gradle, dan tidak memengaruhi kualitas/sistem APK Anda. 
+**Solusi:** (Sudah diterapkan)
+Cukup letakkan tambahan sintaks berikut di bagian terbawah file `gradle.properties`:
+```properties
+android.suppressUnsupportedCompileSdk=35
+```
+
+### 3. Aplikasi "Blank Putih" Saat Koneksi Terputus / Fallback WebView
+Agar aplikasi TWA otomatis mengenali bahwa ia butuh mengakses lalu lintas browser web (saat chrome tidak siap dan fallback ke WebView lokal), _permission_ Internet mutlak diberikan secara eksplisit.
+**Solusi:** (Sudah diterapkan)
+Tambahkan ke dalam `AndroidManifest.xml`:
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+```
