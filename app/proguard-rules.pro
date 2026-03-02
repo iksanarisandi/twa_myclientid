@@ -2,6 +2,12 @@
 # You can control the set of applied configuration files using the
 # proguardFiles setting in build.gradle.
 
+# ── Trusted Web Activity / AndroidBrowserHelper ───────────────────────────────
+# KRITIS: TWA wajib di-keep agar release build tidak crash
+-keep class com.google.androidbrowserhelper.** { *; }
+-keep interface com.google.androidbrowserhelper.** { *; }
+-dontwarn com.google.androidbrowserhelper.**
+
 # ── WebView JavascriptInterface ──────────────────────────────────────────────
 # KRITIS: Tanpa rule ini, semua @JavascriptInterface akan di-strip oleh R8/ProGuard
 # saat release build, menyebabkan fitur blob download dan komunikasi JS-native gagal.
@@ -20,3 +26,4 @@
 
 # ── Suppress warning dari library internal ───────────────────────────────────
 -dontwarn kotlin.reflect.jvm.internal.**
+-dontwarn javax.servlet.**
