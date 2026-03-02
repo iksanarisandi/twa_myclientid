@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Izin untuk memastikan TWA dapat mengakses web ketika terjadi fallback atau dijalankan tanpa dukungan native CCT -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
@@ -13,7 +16,7 @@
 
         <meta-data
             android:name="asset_statements"
-            android:value="${assetStatements}" />
+            android:resource="@string/asset_statements" />
 
         <activity android:name="com.google.androidbrowserhelper.trusted.LauncherActivity"
             android:label="@string/app_name"
@@ -22,7 +25,7 @@
             <meta-data android:name="android.support.customtabs.trusted.DEFAULT_URL"
                 android:value="${defaultUrl}" />
             <meta-data android:name="android.support.customtabs.trusted.ADDITIONAL_TRUSTED_ORIGINS"
-                android:value="https://client.pass.net.id" />
+                android:resource="@array/additional_trusted_origins" />
             <meta-data android:name="android.support.customtabs.trusted.STATUS_BAR_COLOR"
                 android:resource="@color/white" />
             <meta-data android:name="android.support.customtabs.trusted.STATUS_BAR_COLOR_DARK"

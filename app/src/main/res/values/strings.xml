@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">My Passnet</string>
+    <string name="asset_statements">${assetStatements}</string>
+    <string-array name="additional_trusted_origins">
+        <item>https://client.pass.net.id</item>
+    </string-array>
 </resources>
