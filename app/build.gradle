@@ -15,7 +15,7 @@ android {
         
         manifestPlaceholders = [
             hostName: "client.pass.net.id",
-            defaultUrl: "https://client.pass.net.id/beranda",
+            defaultUrl: "https://client.pass.net.id/login",
             assetStatements: '[{"relation": ["delegate_permission/common.handle_all_urls"], "target": {"namespace": "web", "site": "https://client.pass.net.id"}}]'
         ]
     }
