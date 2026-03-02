@@ -25,11 +25,21 @@ android {
         targetCompatibility JavaVersion.VERSION_17
     }
 
+    signingConfigs {
+        release {
+            storeFile file('release-keystore.jks')
+            storePassword System.getenv("APP_KEYSTORE_PASSWORD")
+            keyAlias System.getenv("APP_KEY_ALIAS")
+            keyPassword System.getenv("APP_KEY_PASSWORD")
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 }
