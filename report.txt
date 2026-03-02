@@ -1,0 +1,28 @@
+
+> Task :app:signingReport
+Variant: debug
+Config: debug
+Store: C:\Users\Lenovo\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 15:D8:46:10:2E:72:1D:69:AA:9A:8F:93:22:94:E0:0A
+SHA1: 68:7C:1E:DF:5D:78:A7:BE:B8:68:E3:C3:68:8C:23:B4:D1:C7:F1:D5
+SHA-256: A7:C3:03:AF:FC:E6:25:8A:BE:4F:8C:3D:1A:B2:E9:D1:23:3D:A1:6B:DD:39:0A:A5:D1:97:B9:5E:1A:79:1B:61
+Valid until: Friday, December 3, 2055
+----------
+Variant: release
+Config: release
+Store: D:\Dari Desktop\Kiro\twa_myclientid\app\release-keystore.jks
+Alias: null
+----------
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\Lenovo\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 15:D8:46:10:2E:72:1D:69:AA:9A:8F:93:22:94:E0:0A
+SHA1: 68:7C:1E:DF:5D:78:A7:BE:B8:68:E3:C3:68:8C:23:B4:D1:C7:F1:D5
+SHA-256: A7:C3:03:AF:FC:E6:25:8A:BE:4F:8C:3D:1A:B2:E9:D1:23:3D:A1:6B:DD:39:0A:A5:D1:97:B9:5E:1A:79:1B:61
+Valid until: Friday, December 3, 2055
+----------
+
+BUILD SUCCESSFUL in 2s
+1 actionable task: 1 executed
