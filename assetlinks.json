@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.passnet.myclientid",
+    "sha256_cert_fingerprints": [
+      "A7:C3:03:AF:FC:E6:25:8A:BE:4F:8C:3D:1A:B2:E9:D1:23:3D:A1:6B:DD:39:0A:A5:D1:97:B9:5E:1A:79:1B:61"
+    ]
+  }
+}]
